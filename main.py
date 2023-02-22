@@ -5,7 +5,7 @@ import random
 from discord .ext import commands
 
 
-with open('settin.json','r',encoding=''utf8)as jfile:  #chek the external
+with open('settin.json','r',encoding='utf8')as jfile:  #chek the external
     jdata = json.load(jfile)                           #隻料庫
 
     
@@ -35,7 +35,7 @@ async def on_member_remove(member):
 
 @bot.command()                                                                      #ex A: HI (上文) [使用者, id, 所在伺服器, 所在頻道]
 async def ping(ctx):                                    # "ctx" context 上下文          B: HI (下文)
-  awit ctx.send(F'{round(bot.latency*1000)}ms')         #"ctx" 包含上述資訊 ⇧⇧⇧ 的變數
+  await ctx.send(F'{round(bot.latency*1000)}ms')         #"ctx" 包含上述資訊 ⇧⇧⇧ 的變數
   #awit 送出                  #延遲
 
 """   
