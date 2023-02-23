@@ -33,10 +33,7 @@ async def on_member_remove(member):
   await channel.send(f'{member}leave!')
  
 
-@bot.command()                                                                      #ex A: HI (上文) [使用者, id, 所在伺服器, 所在頻道]
-async def ping(ctx):                                    # "ctx" context 上下文          B: HI (下文)
-  await ctx.send(F'{round(bot.latency*1000)}ms')         #"ctx" 包含上述資訊 ⇧⇧⇧ 的變數
-  #awit 送出                  #延遲
+
 
 """   
 @bot.command()
@@ -54,21 +51,9 @@ async def 梗圖(ctx):
 """
 
 
-"""   
-@bot.command()
-async def 梗圖(ctx):
-   random_pic = random.choice(jdata['pic'])                                                        #主機端圖片 簡略版 隨機
-   pic = discord.File(random_pic) 
-   awiat ctx.send(file = pic)
-"""
+   
+              
 
-
-"""   
-@bot.command()
-async def 梗圖(ctx):
-   random_pic = random.choice(jdata['url_pic'])                                                        #主機端圖片 簡略版 隨機
-   awiat ctx.send(random_pic)                       
-"""
 
 
 bot.run(jdata['TOKEN'])         #"TOKEN" create 
