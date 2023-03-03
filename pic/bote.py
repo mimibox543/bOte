@@ -1,12 +1,13 @@
 import discord
 import json
 import random
+import os
 
 from discord .ext import commands
 
 
 with open('settin.json','r',encoding='utf8')as jfile:  #chek the external
-    jdata = json.load(jfile)                           #隻料庫
+    jdata = json.load(jfile)                           #資料庫
 
     
 intent = discord.Intents.default()
@@ -20,8 +21,29 @@ bot = commands.Bot(command_prefix='!', intents=intent)  #版本
 @bot.event
 async def on_read():
     print(">> Bot is awake<<")                          #啟動
+
+for filename in os.listtdir90('./cmds'):                #list 列表
+   if filename.endswith('.py'):                         #偵查尾句.py
+      bot.load_extension(F'cmds.{filename[:-3]}')       # -3 →倒數格字，print算到那為止
+
+@bot.command()
+async def load(ctx, extension):
+   bot.load_extension(F'cmds.{extension}')
+   await ctx.send(f'loaded {extension} done.')
+
+@bot.command()
+async def unload(ctx, extension):
+   bot.unload_extension(F'cmds.{extension}')
+   await ctx.send(f'unloaded {extension} done.')
+
+@bot.command()
+async def reload(ctx, extension):
+   bot.reload_extension(F'cmds.{extension}')
+   await ctx.send(f'reloaded {extension} done.')   
     
-    
+
+
+
 @bot.event
 async def on_member_join(member):
   channel = bot.get_channel()                           #頻道 ID
@@ -55,8 +77,8 @@ async def 梗圖(ctx):
               
 
 
-
-bot.run(jdata['TOKEN'])         #"TOKEN" create 
+if __name__ == "__main__":
+     bot.run(jdata['TOKEN'])         #"TOKEN" create 
 #bot.run('MTA1NjkzNjEyNTM0NTg0NTM0OQ.G4JdL4.M65r3UKFbh71EbNT5N3nGY9R47uzWoiiEVnLaE')                
 
 
