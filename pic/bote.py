@@ -6,7 +6,7 @@ import os
 from discord .ext import commands
 
 
-with open('settin.json','r',encoding='utf8')as jfile:  #chek the external
+with open('setting.json','r',encoding='utf8')as jfile:  #chek the external
     jdata = json.load(jfile)                           #資料庫
 
     
@@ -20,11 +20,11 @@ bot = commands.Bot(command_prefix='!', intents=intent)  #版本
 
 @bot.event
 async def on_read():
-    print(">> Bot is awake<<")                          #啟動
+    print(">> Bote is awake <<")                          #啟動
 
-for filename in os.listtdir90('./cmds'):                #list 列表
-   if filename.endswith('.py'):                         #偵查尾句.py
-      bot.load_extension(F'cmds.{filename[:-3]}')       # -3 →倒數格字，print算到那為止
+for Filename in os.listdir('./cmds'):                #list 列表
+   if Filename.endswith('.py'):                         #偵查尾句.py
+      bot.load_extension(F'cmds.{Filename[:-3]}')       # -3 →倒數格字，print算到那為止
 
 @bot.command()
 async def load(ctx, extension):
