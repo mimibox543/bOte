@@ -2,7 +2,7 @@ import discord
 import random
 import json
 
-with open('settin.json','r',encoding='utf8')as jfile:  #chek the external
+with open('setting.json','r',encoding='utf8')as jfile:  #chek the external
     jdata = json.load(jfile)                           #隻料庫
 
 from discord.ext import commands
