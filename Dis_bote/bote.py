@@ -15,8 +15,8 @@ with open('setting.json','r',encoding='utf8')as jfile:  #chek the external
 #_________________________________________________________________________________________________________________
 
 
-bot = commands.Bot(command_prefix='!', intents=intents)  #版本
-
+#bot = commands.Bot(command_prefix='!', intents=intents)  #版本 
+bot = commands.Bot(command_prefix='!', help_command=commands.DefaultHelpCommand()) 
 
 
 @bot.event                                              #bot awake
